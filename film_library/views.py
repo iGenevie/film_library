@@ -43,3 +43,17 @@ def film_new(request, user_pk):
     else:
         form = FilmForm()
     return render(request, 'film_library/film_edit.html', {'form': form})
+
+
+def film_edit(request, user_pk, film_pk):
+    film = get_object_or_404(Film, pk=film_pk)
+    if request.method == "POST":
+        form = FilmForm(request.POST, instance=film)
+        if form.is_valid():
+            film = form.save(commit=False)
+            film.added_date = timezone.now()
+            film.save()
+            return redirect('films_list', pk=user_pk)
+    else:
+        form = FilmForm(instance=film)
+    return render(request, 'film_library/film_edit.html', {'form': form})
