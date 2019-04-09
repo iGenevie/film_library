@@ -11,3 +11,18 @@ class User(models.Model):
 
     def __str__(self):
         return self.login
+
+
+class Film(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    original_title = models.CharField(max_length=20)
+    production = models.CharField(max_length=30)
+    country = models.CharField(max_length=20)
+    year = models.IntegerField()
+    added_date = models.DateTimeField(timezone.now())
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.original_title
