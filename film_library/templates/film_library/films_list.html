@@ -6,7 +6,7 @@
         <h4>Список фильмов пользователя:</h4>
     </div>
     {% for film in films %}
-        <h3><a href="">{{ film.original_title }}</a></h3>
+        <h3><a href="{% url 'film_edit' user_pk=user.pk film_pk=film.pk %}">{{ film.original_title }}</a></h3>
         <p>Production: {{ film.production }}</p>
         <p>Country: {{ film.country }}</p>
         <p>Year: {{ film.year }}</p>
