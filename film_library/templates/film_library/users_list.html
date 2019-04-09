@@ -6,7 +6,7 @@
             <div>
                 <p>Создан: {{ user.created_date }}</p>
             </div>
-            <h1><a href="">{{ user.login }}</a></h1>
+            <h1><a href="{% url 'films_list' pk=user.pk %}">{{ user.login }}</a></h1>
         </div>
     {% endfor %}
     <h2><a href="">Add user</a></h2>
