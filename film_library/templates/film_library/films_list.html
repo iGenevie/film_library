@@ -14,5 +14,5 @@
             {{ film.added_date }}
         </div>
     {% endfor %}
-    <h2><a href="">Add film</a></h2>
+    <h2><a href="{% url 'film_new' user_pk=user.pk %}">Add film</a></h2>
 {% endblock %}
