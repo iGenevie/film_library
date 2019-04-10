@@ -1,18 +1,14 @@
 {% extends 'film_library/base.html' %}
 
 {% block content %}
-    <div>
-        <h1>{{ user.login }}</h1>
-        <h4>Список фильмов пользователя:</h4>
-    </div>
+    <h1>{{ user.login }}</h1>
+    <h4>Список фильмов пользователя:</h4>
     {% for film in films %}
         <h3><a href="{% url 'film_edit' user_pk=user.pk film_pk=film.pk %}">{{ film.original_title }}</a></h3>
         <p>Production: {{ film.production }}</p>
         <p>Country: {{ film.country }}</p>
         <p>Year: {{ film.year }}</p>
-        <div>
-            {{ film.added_date }}
-        </div>
+        {{ film.added_date }}
     {% endfor %}
     <h2><a href="{% url 'film_new' user_pk=user.pk %}">Add film</a></h2>
 {% endblock %}
