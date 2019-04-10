@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.utils import timezone
 from .models import User, Film
 
@@ -27,3 +27,15 @@ class FilmTestCase(TestCase):
 
     def test_film_str(self):
         self.assertEqual(self.garfield.__str__(), 'Garfield')
+
+
+class TestURLs(TestCase):
+    def test_users_list(self):
+        client = Client()
+        response = client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_user_new(self):
+        client = Client()
+        response = client.get('/user/new/')
+        self.assertEqual(response.status_code, 200)
