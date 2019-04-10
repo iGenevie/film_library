@@ -15,8 +15,8 @@ Technologies:
 
 ## Usage
 
-To run site, download/clone repo and execute:
-
+To run site, download/clone repo and execute: \
+```python manage.py loaddata data.json``` \
 ```python manage.py runserver ```
 
 ## Libraries and Environment:
