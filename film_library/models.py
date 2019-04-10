@@ -6,9 +6,6 @@ class User(models.Model):
     login = models.CharField(max_length=15)
     created_date = models.DateTimeField(timezone.now())
 
-    def publish(self):
-        self.save()
-
     def __str__(self):
         return self.login
 
@@ -20,9 +17,6 @@ class Film(models.Model):
     country = models.CharField(max_length=20)
     year = models.IntegerField()
     added_date = models.DateTimeField(timezone.now())
-
-    def publish(self):
-        self.save()
 
     def __str__(self):
         return self.original_title
